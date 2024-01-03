@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book Catalog</title>
+    <style>
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 80%;  
+            height: auto;  
+            margin: 10px 0;  
+        }
+        .card p {
+            padding: 5px;
+        }
+        .add-to-cart {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+     
+        <a href="home.html">Home</a>
+        <a href="cart.html">Cart</a>
+      
+    </nav>
+    <center><h2>Our Book Catalog</h2></center>
+
+    <div class="catalog">
+       
+        <div class="card">
+            <img src="images/python.jpeg" alt="Book1">
+            <p>TITLE:-PYTHON PROGRAMMING FOR BEGINNERS  </p>
+            <p>Author Name:- MARK REED </p>
+            <p>Price:- 800rs</p>
+            <button class="add-to-cart" onclick="addToCart('PYTHON PROGRAMMING FOR BEGINNERS', 'MARK REED', 800)">Add to Cart</button>
+        </div>
+
+         
+        <div class="card">
+            <img src="images/java.jpeg" alt="Book2">
+            <p>Title:- JAVA PROGRAMMING</p>
+            <p>Author Name:- SURBHI KAKAR</p>
+            <P>Price:- 500rs</P>
+            <button class="add-to-cart" onclick="addToCart('JAVA PROGRAMMING', 'SURBHI KAKAR','500rs')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="images/htnl5.jpeg" alt="Book2">
+            <p>Title:- GUIDE FOR HTML5 </p>
+            <P>Author Name:- FARMAN</P>
+            <P>Price:- 480rs</P>
+            <button class="add-to-cart" onclick="addToCart('GUIDE FOR HTML5', 'FARMAN', '480rs')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="images/c.jpeg" alt="Book2">
+            <p>Title:- C PROGRAMMING LANGUAGE </p>
+            <P>Author Name:- KARN AND MAHATO</P>
+            <P>Price:- 680rs</P>
+            <button class="add-to-cart" onclick="addToCart('C PROGRAMMING LANGUAGE','KARN AND MAHATO','680rs')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="images/dbms.jpeg" alt="Book2">
+            <p>Title:- DBMS MANAGEMENT SYSTEM </p>
+            <p>Author Name:- S.CHAND</p>
+            <P>Price:- 800rs</P>
+            <button class="add-to-cart"onclick="addToCart('DBMS MANAGEMENT SYSTEM','S.CHAND','800rs' )">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="images/networks.jpeg" alt="Book2">
+            <p>Title:- COMPUTER NETWORKS </p>
+            <P>Author Name:- SANJAY SHARMA</P>
+            <P>Price:- 6000rs</P>
+            <button class="add-to-cart" onclick="addToCart('COMPUTER NETWORKS','SANJAY SHARMA','6000rs')">Add to Cart</button>
+        </div>
+         
+       
+
+ 
+    </div>
+    <script>
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        function addToCart(title, author, price) {
+            const book = { title, author, price };
+            cart.push(book);
+            localStorage.setItem('cart', JSON.stringify(cart));  
+            alert(title + " added to cart!");
+        }
+    </script>
+    
+</body>
+
+</html>
